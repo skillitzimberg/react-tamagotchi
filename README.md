@@ -18,12 +18,12 @@ Install Webpack module bundler
 npm install webpack@3.4.0 --save-dev
 ```
 
-Provides access to Webpack commands in the Terminal
+Install Webpack globally: provides access to Webpack commands in the Terminal
 ```
 npm install webpack@3.4.0 -g
 ```
 
-Primary Babel library
+Install primary Babel library
 ```
 npm install babel-core@6.24.1 --save-dev
 ```
@@ -48,18 +48,22 @@ Install Prop Types library
 npm install prop-types@15.5.10 --save
 ```
 
+Install Webpack Development Server globally
 ```
 npm install webpack-dev-server@2.5.0 -g
 ```
 
+Install Webpack Development Server locally
 ```
 npm install webpack-dev-server@2.5.0 --save-dev
 ```
 
+Install React-Hot-Loader to work with Webpack-Dev-Server
 ```
 npm install react-hot-loader@3.0.0-beta.7 --save-dev
 ```
 
+Install HTML-Webpack-Plugin: programmatically generates an index.html file using Webpack
 ```
 npm install html-webpack-plugin@2.29.0 --save-dev
 ```
