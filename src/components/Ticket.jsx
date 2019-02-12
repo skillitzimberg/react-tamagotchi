@@ -6,9 +6,9 @@ function Ticket(props){
     <div>
       <style jsx>{`
         div {
-          background-color: red;
+          text-align: center;
         }
-      `}</style>
+        `}</style>
       <h3>{props.location} - {props.names}</h3>
       <p><em>{props.issue}</em></p>
       <hr/>
