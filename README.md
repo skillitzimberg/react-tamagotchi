@@ -191,3 +191,16 @@ Add ES Lint fix option to scripts
 ```
 "lint-fix": "eslint src/** src/**/** --fix; exit 0"
 ```
+
+Install Styled JSX plugin
+```
+npm install --save styled-jsx
+```
+
+Add the plugin to webpack.config
+```
+plugins: [
+  "react-hot-loader/babel",
+  "styled-jsx/babel"
+]
+```
