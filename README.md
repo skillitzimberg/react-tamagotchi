@@ -189,18 +189,86 @@ Add the following ES Lint loader rules to webpack.config.js rules section. Put t
 
 Add ES Lint fix option to scripts
 ```
-"lint-fix": "eslint src/** src/**/** --fix; exit 0"
+"lint-fix": "eslint 'src/**' 'src/**/**' --fix; exit 0"
 ```
 
-Install Styled JSX plugin
+Install React-Router-Dom library
 ```
-npm install --save styled-jsx
+npm install react-router-dom@4.0.0 --save
 ```
 
-Add the plugin to webpack.config
+Import HashRouter to src/index.jsx
 ```
-plugins: [
-  "react-hot-loader/babel",
-  "styled-jsx/babel"
-]
+import { HashRouter } from 'react-router-dom';
+```
+
+Surround App Component in HashRouter tags
+```
+<HashRouter>
+  <Component/>
+</HashRouter>
+```
+
+Import Switch & Route to App.jsx
+```
+import { Switch, Route } from 'react-router-dom';
+```
+
+Add Switch elements & Route tags to App.jsx
+```
+<Header/>
+<Switch>
+  <Route exact path='/' component={TicketList} />
+  <Route path='/newticket' component={NewTicketForm} />
+</Switch>
+```
+
+Import NewTicketForm to App.jsx
+```
+import NewTicketForm from './NewTicketForm';
+```
+
+Create NewTicketForm component
+```
+import React from 'react';
+
+function NewTicketForm(){
+  return (
+    <div>
+      <form>
+        <input
+          type='text'
+          id='names'
+          placeholder='Pair Names'/>
+        <input
+          type='text'
+          id='location'
+          placeholder='Location'/>
+        <textarea
+          id='issue'
+          placeholder='Describe your issue.'/>
+        <button type='submit'>Help!</button>
+      </form>
+    </div>
+  );
+}
+
+export default NewTicketForm;
+```
+
+Import Link to Header.jsx & add Link elements
+```
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Header(){
+  return (
+    <div>
+      <h1>Help Queue</h1>
+      <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
+    </div>
+  );
+}
+
+export default Header;
 ```
