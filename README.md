@@ -272,3 +272,31 @@ function Header(){
 
 export default Header;
 ```
+
+Install webpack URL loader
+```
+npm install url-loader@0.6.2 --save-dev
+```
+
+Install webpack file loader
+```
+npm install file-loader@1.1.6 --save-dev
+```
+
+Configure webpack.config to use URL & file loader
+```
+module: {
+  rules: [
+    ...
+    {
+      test: /\.(png|gif|jp(e*)g|svg)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 8000,
+          name: 'images/[hash]-[name].[ext]'
+        }
+      }
+    }
+    ...
+```
