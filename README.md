@@ -300,3 +300,8 @@ module: {
     }
     ...
 ```
+
+Install UUID library
+```
+npm install uuid@3.2.1
+```

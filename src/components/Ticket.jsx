@@ -9,7 +9,8 @@ function Ticket(props){
           text-align: center;
         }
         `}</style>
-      <h3>{props.location} - {props.names}</h3>
+      <h3>{props.names}</h3>
+      <h3>{props.location}</h3>
       <p><em>{props.issue}</em></p>
       <hr/>
     </div>
