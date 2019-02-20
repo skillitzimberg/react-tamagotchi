@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Header(){
+function Screen(props){
   return (
     <div>
       <h3>{props.message}</h3>
@@ -9,8 +9,8 @@ function Header(){
   );
 }
 
-Header.propTypes = {
+Screen.propTypes = {
   message: PropTypes.string
 };
 
-export default Header;
+export default Screen;

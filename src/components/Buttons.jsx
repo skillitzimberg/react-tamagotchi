@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Header(){
+function Buttons(props){
+
   return (
     <div>
       <h3>{props.message}</h3>
+      <Button />
     </div>
   );
 }
 
-Header.propTypes = {
+Buttons.propTypes = {
   message: PropTypes.string
 };
 
-export default Header;
+export default Buttons;
