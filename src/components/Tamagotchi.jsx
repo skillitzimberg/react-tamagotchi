@@ -18,22 +18,36 @@ class Tamagotchi extends React.Component {
     this.handleSleep = this.handleSleep.bind(this);
   }
 
+  componentDidMount() {
+    this.lifeCycleTimer = setInterval(()=> {
+      let tempPlay = this.state.play;
+      let tempHunger = this.state.hunger;
+      let tempSleep = this.state.sleep;
+      tempPlay --;
+      tempHunger --;
+      tempSleep --;
+      this.setState({sleep: tempSleep});
+      this.setState({hunger: tempHunger});
+      this.setState({play: tempPlay});
+    }, 5000);
+  }
+
   handlePlay(string) {
     console.log("Play triggered. String entered: ", string)
     let tempPlay = this.state.play;
-    tempPlay --;
+    tempPlay ++;
     this.setState({play: tempPlay})
   }
 
   handleFeed() {
     let tempHunger = this.state.hunger;
-    tempHunger --;
+    tempHunger ++;
     this.setState({hunger: tempHunger})
   }
 
   handleSleep() {
     let tempSleep = this.state.sleep;
-    tempSleep --;
+    tempSleep ++;
     this.setState({sleep: tempSleep})
   }
 
@@ -58,6 +72,7 @@ class Tamagotchi extends React.Component {
           onPlay = {this.handlePlay}
           onFeed = {this.handleFeed}
           onSleep = {this.handleSleep}
+          property = 'disabled'
           />
       </div>
     );
