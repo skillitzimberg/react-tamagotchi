@@ -10,7 +10,16 @@ function Screen(props){
     width: size,
     backgroundColor: color
   }
-  
+
+
+  function onDragOver(event) {
+    event.preventDefault();
+  }
+
+  function onDrop(event) {
+    props.onTriggeredEvent()
+  }
+
   return (
     <div className='wrapper'>
       <style jsx>{`
@@ -43,14 +52,20 @@ function Screen(props){
         <h2>Play: {props.parentState.play}</h2>
       </div>
 
-      <div id='tommy-circle' style={circleStyle} onDrop={() => {dropHandler()}}>
+      <div
+        id='tommy-circle'
+        style={circleStyle}
+        onDrop={event => onDrop(event)}
+        onDragOver={(event => onDragOver(event))}
+      >
       </div>
     </div>
   );
 }
 
 Screen.propTypes = {
-  message: PropTypes.string
+  message: PropTypes.string,
+  onTriggeredEvent: PropTypes.func
 };
 
 export default Screen;

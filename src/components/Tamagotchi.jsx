@@ -17,6 +17,7 @@ class Tamagotchi extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.handleFeed = this.handleFeed.bind(this);
     this.handleSleep = this.handleSleep.bind(this);
+    this.handleTriggeredEvent = this.handleTriggeredEvent.bind(this);
   }
 
   componentDidMount() {
@@ -60,15 +61,20 @@ class Tamagotchi extends React.Component {
     // this.setState((state)=> {
     //   return { hunger: state.hunger++}
     // })
-
-
   }
 
   handleSleep() {
     let tempSleep = this.state.sleep;
     tempSleep ++;
     this.setState({sleep: tempSleep})
+  }
 
+  handleTriggeredEvent() {
+    console.log('Triggered!');
+    let updateHunger = this.state.hunger;
+    updateHunger ++;
+    this.setState({hunger: updateHunger});
+    console.log(this.state.hunger);
   }
 
   render() {
@@ -88,6 +94,7 @@ class Tamagotchi extends React.Component {
         <Screen message={'screen works'}
           parentState = {this.state}
           onFeed = {this.handleFeed}
+          onTriggeredEvent = {this.handleTriggeredEvent}
           />
         <Buttons message={'buttons works'}
           onPlay = {this.handlePlay}
