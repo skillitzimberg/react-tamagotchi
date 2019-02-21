@@ -17,12 +17,9 @@ class Tamagotchi extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.handleFeed = this.handleFeed.bind(this);
     this.handleSleep = this.handleSleep.bind(this);
-    this.handleTriggeredEvent = this.handleTriggeredEvent.bind(this);
   }
 
   componentDidMount() {
-
-    // console.log(this.state)
     this.lifeCycleTimer = setInterval(()=> {
       this.setState((state)=> {
         return {
@@ -31,18 +28,6 @@ class Tamagotchi extends React.Component {
           sleep: state.sleep -1
         }
       })
-
-      // let tempPlay = this.state.play;
-      // let tempHunger = this.state.hunger;
-      // let tempSleep = this.state.sleep;
-      // tempPlay --;
-      // tempHunger --;
-      // tempSleep --;
-      // this.setState({sleep: tempSleep});
-      // this.setState({hunger: tempHunger});
-      // this.setState({play: tempPlay});
-      //
-      // console.log(this.state)
     }, 5000);
   }
 
@@ -54,27 +39,15 @@ class Tamagotchi extends React.Component {
   }
 
   handleFeed() {
-    let tempHunger = this.state.hunger;
-    tempHunger ++;
-    this.setState({hunger: tempHunger});
-
-    // this.setState((state)=> {
-    //   return { hunger: state.hunger++}
-    // })
+    let updateHunger = this.state.hunger;
+    updateHunger ++;
+    this.setState({hunger: updateHunger});
   }
 
   handleSleep() {
     let tempSleep = this.state.sleep;
     tempSleep ++;
     this.setState({sleep: tempSleep})
-  }
-
-  handleTriggeredEvent() {
-    console.log('Triggered!');
-    let updateHunger = this.state.hunger;
-    updateHunger ++;
-    this.setState({hunger: updateHunger});
-    console.log(this.state.hunger);
   }
 
   render() {
@@ -94,7 +67,6 @@ class Tamagotchi extends React.Component {
         <Screen message={'screen works'}
           parentState = {this.state}
           onFeed = {this.handleFeed}
-          onTriggeredEvent = {this.handleTriggeredEvent}
           />
         <Buttons message={'buttons works'}
           onPlay = {this.handlePlay}

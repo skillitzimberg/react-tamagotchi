@@ -17,7 +17,7 @@ function Screen(props){
   }
 
   function onDrop(event) {
-    props.onTriggeredEvent()
+    props.onFeed()
   }
 
   return (
@@ -65,7 +65,7 @@ function Screen(props){
 
 Screen.propTypes = {
   message: PropTypes.string,
-  onTriggeredEvent: PropTypes.func
+  onFeed: PropTypes.func
 };
 
 export default Screen;
