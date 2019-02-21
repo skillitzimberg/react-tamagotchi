@@ -13,6 +13,7 @@ class Tamagotchi extends React.Component {
       hunger: 10,
       play: 10
     }
+
     this.handlePlay = this.handlePlay.bind(this);
     this.handleFeed = this.handleFeed.bind(this);
     this.handleSleep = this.handleSleep.bind(this);
