@@ -10,7 +10,7 @@ function Screen(props){
     width: size,
     backgroundColor: color
   }
-
+  
   return (
     <div className='wrapper'>
       <style jsx>{`
@@ -43,7 +43,7 @@ function Screen(props){
         <h2>Play: {props.parentState.play}</h2>
       </div>
 
-      <div id='tommy-circle' style={circleStyle}>
+      <div id='tommy-circle' style={circleStyle} onDrop={() => {dropHandler()}}>
       </div>
     </div>
   );

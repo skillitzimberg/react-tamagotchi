@@ -20,16 +20,28 @@ class Tamagotchi extends React.Component {
   }
 
   componentDidMount() {
+
+    // console.log(this.state)
     this.lifeCycleTimer = setInterval(()=> {
-      let tempPlay = this.state.play;
-      let tempHunger = this.state.hunger;
-      let tempSleep = this.state.sleep;
-      tempPlay --;
-      tempHunger --;
-      tempSleep --;
-      this.setState({sleep: tempSleep});
-      this.setState({hunger: tempHunger});
-      this.setState({play: tempPlay});
+      this.setState((state)=> {
+        return {
+          play: state.play -1,
+          hunger: state.hunger -1,
+          sleep: state.sleep -1
+        }
+      })
+
+      // let tempPlay = this.state.play;
+      // let tempHunger = this.state.hunger;
+      // let tempSleep = this.state.sleep;
+      // tempPlay --;
+      // tempHunger --;
+      // tempSleep --;
+      // this.setState({sleep: tempSleep});
+      // this.setState({hunger: tempHunger});
+      // this.setState({play: tempPlay});
+      //
+      // console.log(this.state)
     }, 5000);
   }
 
@@ -43,13 +55,20 @@ class Tamagotchi extends React.Component {
   handleFeed() {
     let tempHunger = this.state.hunger;
     tempHunger ++;
-    this.setState({hunger: tempHunger})
+    this.setState({hunger: tempHunger});
+
+    // this.setState((state)=> {
+    //   return { hunger: state.hunger++}
+    // })
+
+
   }
 
   handleSleep() {
     let tempSleep = this.state.sleep;
     tempSleep ++;
     this.setState({sleep: tempSleep})
+
   }
 
   render() {
@@ -68,6 +87,7 @@ class Tamagotchi extends React.Component {
           />
         <Screen message={'screen works'}
           parentState = {this.state}
+          onFeed = {this.handleFeed}
           />
         <Buttons message={'buttons works'}
           onPlay = {this.handlePlay}
